@@ -1,0 +1,24 @@
+# Title line. 50 char max, no '.' at end.        #
+##################################################
+
+# All lines below should wrap at 72 characters                         #
+########################################################################
+
+Problem:
+
+# 1-2 sentence summary of the problem being solved and why.
+
+Solution:
+
+# Summary of how this solves the problem
+
+Changes:
+
+# Summary of what changed
+*
+*
+*
+
+Testing:
+
+# Testing done. All testing is ad hoc for the forseeable future.

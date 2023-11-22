@@ -1,0 +1,79 @@
+{
+	"FileVersion": 3,
+	"EngineAssociation": "{078DB51E-407D-4FDB-4B02-45B916FC9475}",
+	"Category": "",
+	"Description": "",
+	"Modules": [
+		{
+			"Name": "Character",
+			"Type": "Runtime"
+		},
+		{
+			"Name": "ExperimentalModule",
+			"Type": "Runtime"
+		},
+		{
+			"Name": "ImGuiDashboard",
+			"Type": "Runtime"
+		},
+		{
+			"Name": "OpponentSearch",
+			"Type": "Runtime"
+		},
+		{
+			"Name": "SharedSearchSpace",
+			"Type": "Runtime"
+		},
+		{
+			"Name": "SuspiciousEvent",
+			"Type": "Runtime"
+		},
+		{
+			"Name": "Radar",
+			"Type": "Runtime",
+			"LoadingPhase": "Default"
+		}
+	],
+	"Plugins": [
+		{
+			"Name": "BCICinematicCamera",
+			"Enabled": true
+		},
+		{
+			"Name": "BCICliques",
+			"Enabled": true
+		},
+		{
+			"Name": "BCICommonUtilities",
+			"Enabled": true
+		},
+		{
+			"Name": "BCIInput",
+			"Enabled": true
+		},
+		{
+			"Name": "BCIPerception",
+			"Enabled": true
+		},
+		{
+			"Name": "BCIRadar",
+			"Enabled": true
+		},
+		{
+			"Name": "GameplayAbilities",
+			"Enabled": true
+		},
+		{
+			"Name": "ImGui",
+			"Enabled": true
+		},
+		{
+			"Name": "UnrealSpdlog",
+			"Enabled": true
+		},
+		{
+			"Name": "BCIAIHelpers",
+			"Enabled": true
+		}
+	]
+}

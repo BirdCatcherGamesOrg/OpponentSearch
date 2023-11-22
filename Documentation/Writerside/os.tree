@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE instance-profile
+        SYSTEM "https://resources.jetbrains.com/writerside/1.0/product-profile.dtd">
+
+<instance-profile id="os" name="Opponent Search"
+                  start-page="">
+
+    <toc-element topic="Plugins.md">
+        <toc-element topic="ThirdParty.md">
+            <toc-element topic="ImGui.md"/>
+        </toc-element>
+        <toc-element topic="BCIPlugins.md">
+            <toc-element topic="Design-Patterns.md"/>
+            <toc-element topic="BCIDynamicNamedInputs.md"/>
+            <toc-element topic="BCICliques.md"/>
+            <toc-element topic="BCIRadar.md"/>
+            <toc-element topic="BCICommonUtilities.md"/>
+        </toc-element>
+    </toc-element>
+    <toc-element topic="Game.md">
+        <toc-element topic="Shared-Search-Space.md"/>
+        <toc-element topic="Character.md">
+        </toc-element>
+        <toc-element topic="ImGui-Debug-Dashboard.md"/>
+    </toc-element>
+    <toc-element topic="OpponentSearch-Project.md">
+        <toc-element topic="Perception-Events.md">
+            <toc-element topic="Alert.md"/>
+            <toc-element topic="Suspicous-Events.md"/>
+            <toc-element topic="Radar.md"/>
+        </toc-element>
+        <toc-element topic="Patrol-Algorithm.md"/>
+        <toc-element topic="Implementation.md">
+            <toc-element topic="Optimizations.md"/>
+        </toc-element>
+        <toc-element topic="Benchmarks.md"/>
+    </toc-element>
+</instance-profile>

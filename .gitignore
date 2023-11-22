@@ -1,0 +1,10 @@
+*.idea
+*Binaries
+*StarterContent
+*Intermediate
+*RiderLink
+*Saved
+*.vs
+*.vsconfig
+*.sln
+*Content
