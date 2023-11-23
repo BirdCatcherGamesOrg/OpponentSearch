@@ -1,0 +1,1 @@
+Copyright BirdCatcher Interactive 2022-2023. All rights reserved.
