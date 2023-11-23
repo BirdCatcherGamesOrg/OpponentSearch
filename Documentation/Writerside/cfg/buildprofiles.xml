@@ -8,5 +8,7 @@
             <noindex-content>true</noindex-content>
         </variables>
     </build-profile>
-	<copyright>BirdCatcher Interactive 2022-2023</copyright>
+	<footer>
+		<copyright>BirdCatcher Interactive 2022-2023</copyright>
+	</footer
 </buildprofiles>
