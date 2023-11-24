@@ -20,7 +20,8 @@ void ACameraBoundsVolume::OnConstruction(const FTransform& Transform)
 	if (ValidArea == nullptr)
 	{
 		FActorSpawnParameters ActorSpawnParameters;
-		ActorSpawnParameters.Name = "ValidArea";
+		ActorSpawnParameters.Name =
+			FActorSpawnUtils::MakeUniqueActorName(GetLevel(), ATriggerBox::StaticClass(), "ValidArea", false);
 		ValidArea = GetWorld()->SpawnActor<ATriggerBox>(ActorSpawnParameters);
 		ValidArea->AttachToActor(this, FAttachmentTransformRules::SnapToTargetNotIncludingScale);
 	}
@@ -28,7 +29,8 @@ void ACameraBoundsVolume::OnConstruction(const FTransform& Transform)
 	if (MovableArea == nullptr)
 	{
 		FActorSpawnParameters ActorSpawnParameters;
-		ActorSpawnParameters.Name = "MovableArea";
+		ActorSpawnParameters.Name =
+			FActorSpawnUtils::MakeUniqueActorName(GetLevel(), ATriggerBox::StaticClass(), "MovableArea", false);
 		MovableArea = GetWorld()->SpawnActor<ATriggerBox>(ActorSpawnParameters);
 		MovableArea->AttachToActor(this, FAttachmentTransformRules::SnapToTargetNotIncludingScale);
 	}
