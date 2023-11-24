@@ -39,6 +39,7 @@ private:
 /**
  * @brief A child class of ACameraActor which delegates the camera view to an injected component.
  * Primarily used by APlayerCameraManager as a view target for the player.
+ * @see APlayerCameraManager::SetViewTarget.
  */
 UCLASS()
 class BCICINEMATICCAMERA_API ADelegatingCameraActor : public ACameraActor

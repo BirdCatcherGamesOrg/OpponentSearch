@@ -10,6 +10,14 @@
 
 namespace
 {
+	/**
+	 * @brief Computes the position that the camera would be in if there was no interpolation.
+	 * @param Volume The volume to compute for.
+	 * @param AllowedTransforms Which axis the camera can translate on.
+	 * @param ActorToTrackLocation The location of the actor being tracked.
+	 * @param CineCameraActorLocation The current location of the camera.
+	 * @param outIdealCameraLocation The computed position.
+	 */
 	void GetIdealCameraLocation(
 		const ACameraBoundsVolume& Volume,
 		const FCameraBoundsAllowedTransforms& AllowedTransforms,
@@ -26,6 +34,14 @@ namespace
 			FVector(IdealCameraLocationX, IdealCameraLocationY, IdealCameraLocationZ) + Volume.Offset.GetLocation();
 	}
 
+	/**
+	 * @brief Computes the rotation that the camera would be in if there was no interpolation.
+	 * @param Volume The volume to compute for.
+	 * @param AllowedTransforms The axis the camera can rotate on.
+	 * @param ActorToTrackLocation The location of the actor being tracked.
+	 * @param IdealCameraLocation The *ideal* location of the camera. Using the current location causes lag.
+	 * @param outRotator The computed rotation.
+	 */
 	void GetLookAtLocation(
 		const ACameraBoundsVolume& Volume,
 		const FCameraBoundsAllowedTransforms& AllowedTransforms,
@@ -41,6 +57,17 @@ namespace
 		outRotator = UKismetMathLibrary::FindLookAtRotation(IdealCameraLocation, LookAtLocation) + Volume.Offset.GetRotation().Rotator();
 	}
 
+	/**
+	 * @brief Interpolates the camera from its current transformation to the ideal one.
+	 * Use the top of the current bounds stack.
+	 * @param DeltaTime To interpolate for. 
+	 * @param CurrentCameraBoundsVolume The top of the current bounds stack.
+	 * @param CameraLocation The current location of the camera.
+	 * @param CameraRotation The current rotation of the camera.
+	 * @param ActorToTrackLocation The location of the actor being tracked.
+	 * @param outCameraLocation The interpolated location of the camera based on DeltaTime.
+	 * @param outRotator The interpolated rotation of the camera based on DeltaTime.
+	 */
 	void GetCameraTransformations(float DeltaTime, const ACameraBoundsVolume& CurrentCameraBoundsVolume, const FVector& CameraLocation, const FRotator& CameraRotation, const FVector& ActorToTrackLocation, FVector& outCameraLocation, FRotator& outRotator)
 	{
 		const FCameraBoundsAllowedTransforms& CameraBoundsAllowedTransforms =
@@ -51,8 +78,9 @@ namespace
 		FRotator LookAtRotation;
 		GetLookAtLocation(CurrentCameraBoundsVolume, CameraBoundsAllowedTransforms, ActorToTrackLocation, CameraLocation, LookAtRotation);
 
-		// Check against the interpolation threshold. Do not interpolate translation and rotation at the same time.
-		// This results in a liquid-y motion-sickness inducing movement.
+		// Check against the interpolation threshold.
+		// Note! Do not interpolate translation and rotation at the same time.
+		// This results in a liquid-y motion-sickness inducing movement. 
 		const bool bIsInstantRotation = CurrentCameraBoundsVolume.RInterpSpeed == 0.0 ||
 			CameraRotation.Equals(LookAtRotation, CurrentCameraBoundsVolume.RInterpTolerance);
 		if (!bIsInstantRotation)
